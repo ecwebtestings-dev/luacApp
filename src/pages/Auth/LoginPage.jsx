@@ -36,19 +36,22 @@ export default function Login() {
               />
             </div>
             <div className="text-center leading-tight">
-              <h1 className="text-lg lg:text-xl font-extrabold text-white tracking-tight">LUAC</h1>
+              <h1 className="hidden text-lg lg:text-xl font-extrabold text-white tracking-tight">LUAC</h1>
               <span className="hidden lg:block text-xs text-cream/70 font-medium tracking-wide uppercase mt-1">
                 Computing Platform
               </span>
             </div>
           </a>
 
-          <h2 className="text-base lg:text-2xl font-extrabold text-white mb-1 lg:mb-3 tracking-tight leading-snug">
-            We're glad you're here!
+          <h2 className="hidden lg:block text-base lg:text-2xl font-extrabold text-white mb-1 lg:mb-3 tracking-tight leading-snug">
+            Welcome Here!
           </h2>
 
           <p className="hidden lg:block text-cream/80 text-[15px] leading-relaxed">
             Please sign in to catch up on events, showcase your projects, and connect with the LUAC community.
+          </p>
+          <p className="md:hidden lg:hidden text-cream/80 text-[15px] leading-relaxed">
+            Please sign in to  connect with the LUAC community.
           </p>
           <div className="hidden lg:flex mt-10 items-center justify-center gap-2">
             <span className="h-1 w-8 rounded-full bg-white/60" />

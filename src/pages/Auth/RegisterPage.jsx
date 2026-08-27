@@ -36,10 +36,8 @@ export default function Signup() {
               />
             </div>
             <div className="text-center leading-tight">
-              <h1 className="text-lg font-extrabold text-white tracking-tight">LUAC</h1>
-              <span className="hidden lg:block text-[10px] text-cream/70 font-medium tracking-wide uppercase mt-1">
-                Computing Platform
-              </span>
+              <h1 className="text-lg hidden lg:block font-extrabold text-white tracking-tight">LUAC</h1>
+            
             </div>
           </a>
 
@@ -47,7 +45,7 @@ export default function Signup() {
             Join the community
           </h2>
 
-          <p className="hidden lg:block text-cream/80 text-sm leading-relaxed">
+          <p className="text-cream/80 text-sm leading-relaxed">
             Register for events, showcase projects, and connect with fellow computing students.
           </p>
 
