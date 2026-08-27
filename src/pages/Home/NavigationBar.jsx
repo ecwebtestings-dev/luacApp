@@ -115,10 +115,10 @@ export default function Nav() {
         </nav>
 
         <div className="absolute left-0 bottom-0 w-full flex flex-col gap-3 p-4 bg-body border-t border-iconBg">
-          <Link to='/login' className="w-full py-3 rounded-[10px] text-sm text-navlink border border-iconBg">
+          <Link to='/login' className="w-full py-3 px-3 rounded-[10px] text-sm text-navlink border border-iconBg">
             Sign In
           </Link>
-          <Link to='/register' className="w-full py-3 rounded-[10px] text-sm font-bold text-white bg-primary">
+          <Link to='/register' className="w-full py-3 px-3 rounded-[10px] text-sm font-bold text-white bg-primary">
             Get Started
           </Link>
         </div>

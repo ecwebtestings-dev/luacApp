@@ -18,9 +18,9 @@ export default function Signup() {
 
   return (
     <div className="min-h-screen flex bg-body font-Inter">
-      {/* Left panel — 1/4 width */}
-      <div className="hidden lg:flex lg:w-1/4 relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 items-center justify-center p-8">
-        {/* Subtle grid texture */}
+      
+      <div className="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 items-center justify-center p-8">
+       
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:36px_36px]" />
 
         {/* Decorative glow orbs — scaled down to fit narrower column */}
