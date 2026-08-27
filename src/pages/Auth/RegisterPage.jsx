@@ -17,47 +17,41 @@ export default function Signup() {
   }
 
   return (
-    <div className="min-h-screen flex bg-body font-Inter">
-      
-      <div className="hidden lg:flex relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 items-center justify-center p-8">
-       
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:36px_36px]" />
+    <div className="min-h-screen flex flex-col lg:flex-row bg-body font-Inter">
 
-        {/* Decorative glow orbs — scaled down to fit narrower column */}
-        <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full bg-white/10 blur-3xl" />
-        <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-white/10 blur-3xl translate-x-1/3 translate-y-1/3" />
-        <div className="absolute top-1/3 -right-6 w-28 h-28 rounded-full bg-cream/10 blur-2xl" />
-
-        {/* Vignette for depth */}
+      {/* Brand panel — pure gradient, no texture/orbs */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 flex items-center justify-center px-6 py-10 lg:w-1/2 lg:p-12">
+        {/* Soft vignette only — keeps depth without clutter */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10" />
 
-        <div className="relative text-center">
-          <a href="/" className="inline-flex flex-col items-center gap-3 mb-10">
+        <div className="relative text-center max-w-sm">
+          <a href="/" className="inline-flex flex-col items-center gap-3 mb-4 lg:mb-10">
             <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-white/20 shadow-lg">
               <img
                 src={image.logo}
                 alt="Luac logo"
-                width="40"
-                height="40"
-                className="rounded-full"
+                width="36"
+                height="36"
+                className="rounded-full lg:w-10 lg:h-10"
               />
             </div>
             <div className="text-center leading-tight">
               <h1 className="text-lg font-extrabold text-white tracking-tight">LUAC</h1>
-              <span className="text-[10px] text-cream/70 font-medium tracking-wide uppercase">
+              <span className="hidden lg:block text-[10px] text-cream/70 font-medium tracking-wide uppercase mt-1">
                 Computing Platform
               </span>
             </div>
           </a>
 
-          <h2 className="text-xl font-extrabold text-white mb-3 tracking-tight leading-snug">
+          <h2 className="text-base lg:text-xl font-extrabold text-white mb-1 lg:mb-3 tracking-tight leading-snug">
             Join the community
           </h2>
-          <p className="text-cream/80 text-sm leading-relaxed">
+
+          <p className="hidden lg:block text-cream/80 text-sm leading-relaxed">
             Register for events, showcase projects, and connect with fellow computing students.
           </p>
 
-          <div className="mt-8 flex items-center justify-center gap-2">
+          <div className="hidden lg:flex mt-8 items-center justify-center gap-2">
             <span className="h-1 w-8 rounded-full bg-white/60" />
             <span className="h-1 w-1.5 rounded-full bg-white/30" />
             <span className="h-1 w-1.5 rounded-full bg-white/30" />
@@ -65,17 +59,12 @@ export default function Signup() {
         </div>
       </div>
 
-      {/* Right panel — 3/4 width */}
-      <div className="flex flex-1 items-center justify-center p-6 sm:p-12">
-        <div className="w-full max-w-sm">
-
-          <a href="/" className="lg:hidden flex items-center gap-2.5 mb-10 justify-center">
-            <img src={image.logo} alt="Luac logo" width="40" height="40" className="rounded-full border-2 border-primary" />
-            <div className="text-left leading-tight">
-              <h1 className="text-lg font-extrabold text-primary">LUAC</h1>
-              <span className="text-xs text-muted">Computing Platform</span>
-            </div>
-          </a>
+      {/* Form panel — rounded top on mobile, floating card feel */}
+      <div className="flex flex-1 items-center justify-center text-center lg:text-left
+                       p-6 sm:p-12
+                       bg-body rounded-t-3xl -mt-6 relative z-10 shadow-[0_-8px_24px_rgba(0,0,0,0.06)]
+                       lg:rounded-none lg:mt-0 lg:shadow-none">
+        <div className="w-full max-w-sm flex flex-col items-center lg:items-start">
 
           <h2 className="text-2xl font-extrabold text-dark mb-2">Create your account</h2>
           <p className="text-muted mb-8">
@@ -85,7 +74,7 @@ export default function Signup() {
             </Link>
           </p>
 
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="w-full space-y-5 text-left">
 
             <div>
               <label htmlFor="fullName" className="block text-sm font-semibold text-dark mb-1.5">
