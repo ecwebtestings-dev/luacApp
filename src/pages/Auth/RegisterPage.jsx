@@ -1,0 +1,181 @@
+import { useState } from 'react'
+import { UserIcon, EnvelopeIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline'
+import image from '../../assets/images'
+import { Link } from 'react-router-dom'
+
+export default function Signup() {
+  const [showPassword, setShowPassword] = useState(false)
+  const [form, setForm] = useState({ fullName: '', email: '', password: '', confirmPassword: '' })
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('Signup submitted:', form)
+  }
+
+  return (
+    <div className="min-h-screen flex bg-body font-Inter">
+      {/* Left panel — 1/4 width */}
+      <div className="hidden lg:flex lg:w-1/4 relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 items-center justify-center p-8">
+        {/* Subtle grid texture */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:36px_36px]" />
+
+        {/* Decorative glow orbs — scaled down to fit narrower column */}
+        <div className="absolute -top-16 -left-16 w-56 h-56 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full bg-white/10 blur-3xl translate-x-1/3 translate-y-1/3" />
+        <div className="absolute top-1/3 -right-6 w-28 h-28 rounded-full bg-cream/10 blur-2xl" />
+
+        {/* Vignette for depth */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10" />
+
+        <div className="relative text-center">
+          <a href="/" className="inline-flex flex-col items-center gap-3 mb-10">
+            <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-white/20 shadow-lg">
+              <img
+                src={image.logo}
+                alt="Luac logo"
+                width="40"
+                height="40"
+                className="rounded-full"
+              />
+            </div>
+            <div className="text-center leading-tight">
+              <h1 className="text-lg font-extrabold text-white tracking-tight">LUAC</h1>
+              <span className="text-[10px] text-cream/70 font-medium tracking-wide uppercase">
+                Computing Platform
+              </span>
+            </div>
+          </a>
+
+          <h2 className="text-xl font-extrabold text-white mb-3 tracking-tight leading-snug">
+            Join the community
+          </h2>
+          <p className="text-cream/80 text-sm leading-relaxed">
+            Register for events, showcase projects, and connect with fellow computing students.
+          </p>
+
+          <div className="mt-8 flex items-center justify-center gap-2">
+            <span className="h-1 w-8 rounded-full bg-white/60" />
+            <span className="h-1 w-1.5 rounded-full bg-white/30" />
+            <span className="h-1 w-1.5 rounded-full bg-white/30" />
+          </div>
+        </div>
+      </div>
+
+      {/* Right panel — 3/4 width */}
+      <div className="flex flex-1 items-center justify-center p-6 sm:p-12">
+        <div className="w-full max-w-sm">
+
+          <a href="/" className="lg:hidden flex items-center gap-2.5 mb-10 justify-center">
+            <img src={image.logo} alt="Luac logo" width="40" height="40" className="rounded-full border-2 border-primary" />
+            <div className="text-left leading-tight">
+              <h1 className="text-lg font-extrabold text-primary">LUAC</h1>
+              <span className="text-xs text-muted">Computing Platform</span>
+            </div>
+          </a>
+
+          <h2 className="text-2xl font-extrabold text-dark mb-2">Create your account</h2>
+          <p className="text-muted mb-8">
+            Already a member?{' '}
+            <Link to="/login" className="text-primary font-semibold hover:underline">
+              Sign in
+            </Link>
+          </p>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+
+            <div>
+              <label htmlFor="fullName" className="block text-sm font-semibold text-dark mb-1.5">
+                Full name
+              </label>
+              <div className="relative">
+                <UserIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-muted" />
+                <input
+                  id="fullName"
+                  name="fullName"
+                  type="text"
+                  value={form.fullName}
+                  onChange={handleChange}
+                  placeholder="Your Name"
+                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-iconBg/60 bg-white text-dark placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="email" className="block text-sm font-semibold text-dark mb-1.5">
+                Email address
+              </label>
+              <div className="relative">
+                <EnvelopeIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-muted" />
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  value={form.email}
+                  onChange={handleChange}
+                  placeholder="you@lirauni.ac.ug"
+                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-iconBg/60 bg-white text-dark placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="password" className="block text-sm font-semibold text-dark mb-1.5">
+                Password
+              </label>
+              <div className="relative">
+                <LockClosedIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-muted" />
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={form.password}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                  className="w-full pl-11 pr-11 py-3 rounded-xl border border-iconBg/60 bg-white text-dark placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((s) => !s)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-muted hover:text-dark"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? <EyeSlashIcon className="size-5" /> : <EyeIcon className="size-5" />}
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label htmlFor="confirmPassword" className="block text-sm font-semibold text-dark mb-1.5">
+                Confirm password
+              </label>
+              <div className="relative">
+                <LockClosedIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 size-5 text-muted" />
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type={showPassword ? 'text' : 'password'}
+                  value={form.confirmPassword}
+                  onChange={handleChange}
+                  placeholder="••••••••"
+                  className="w-full pl-11 pr-4 py-3 rounded-xl border border-iconBg/60 bg-white text-dark placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 rounded-xl bg-primary text-white font-semibold hover:bg-primary-light transition-colors"
+            >
+              Create Account
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -1,9 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-
-
 @theme {
-  --color-primary: #004225;         /* --primary_color */
+  --color-primary: #004225;         
   --color-primary-light: #19553B;   /* --light-green */
   --color-cream: #F1F1EB;           /* --light-cream */
   --color-line: #608E77;            /* --lines */
@@ -17,8 +16,10 @@
   --color-surfaceHeader: #FEFDFE;   /* header glass background */
   --color-navlink: #6B7280;         /* --navlink */
   --color-muted: #7D7280;           /* --textGrayColor */
- 
-  --font-nunito: "Nunito", sans-serif;
+  --color-pagebg:#F8F6F1;
+  --font-nunito: "Ubuntu", sans-serif;
+  --font-fjalla: "Fjalla One", sans-serif;
+  --font-Inter: "Inter", sans-serif;
 }
  
 

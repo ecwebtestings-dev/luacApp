@@ -1,22 +1,16 @@
 import { useState } from 'react'
-import {
-  HomeIcon,
-  HeartIcon,
-  InformationCircleIcon,
-  CalendarIcon,
-  Bars3Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline'
+import {Bars3Icon,XMarkIcon,} from '@heroicons/react/24/outline'
 import image from '../../assets/images'
+import {Link} from 'react-router-dom';
 
-export default function NavBar() {
+export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
-    { name: 'Home', href: '/', icon: HomeIcon },
-    { name: 'Our Activities', href: '/activities', icon: HeartIcon },
-    { name: 'About Luac', href: '/about', icon: InformationCircleIcon },
-    { name: 'Events', href: '/events', icon: CalendarIcon },
+    { name: 'Home', href: '/', },
+    { name: 'Our Activities', href: '/activities',  },
+    { name: 'About Luac', href: '/about',  },
+    { name: 'Events', href: '/events',  },
   ]
 
   return (
@@ -43,7 +37,6 @@ export default function NavBar() {
             {navLinks.map((item) => (
               <li key={item.name} className="px-4 py-2 rounded-[10px] hover:bg-hoverBg transition-colors">
                 <a href={item.href} className="flex items-center gap-1.5 text-navlink font-medium hover:text-primary">
-                  <item.icon className="size-5 text-muted" />
                   {item.name}
                 </a>
               </li>
@@ -53,15 +46,15 @@ export default function NavBar() {
 
         {/* Desktop auth buttons */}
         <div className="hidden lg:flex gap-2.5">
-          <button className="px-5 py-2.5 rounded-[10px] text-sm text-navlink hover:bg-karki-hover transition-colors">
+          <Link to='/login' className="px-5 py-2.5 cursor-pointer rounded-[10px] text-sm text-navlink hover:bg-karki-hover transition-colors">
             Sign In
-          </button>
-          <button className="px-5 py-2.5 rounded-[10px] text-sm font-bold text-white bg-primary hover:-translate-y-0.5 hover:shadow-[0_15px_30px_rgba(0,0,0,0.25)] transition-all">
+          </Link>
+          <Link to='/register' className="px-5 py-2.5 cursor-pointer rounded-[10px] text-sm font-bold text-white bg-primary hover:-translate-y-0.5 hover:shadow-[0_15px_30px_rgba(0,0,0,0.25)] transition-all">
             Get Started
-          </button>
+          </Link>
         </div>
 
-        {/* Hamburger — mobile/tablet only */}
+        {/* Hamburger */}
         <button
           type="button"
           onClick={() => setMobileOpen(true)}
@@ -114,7 +107,6 @@ export default function NavBar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center gap-2.5 px-3 py-3 rounded-[10px] text-dark font-semibold hover:bg-hoverBg"
                 >
-                  <item.icon className="size-5 text-muted" />
                   {item.name}
                 </a>
               </li>
@@ -123,12 +115,12 @@ export default function NavBar() {
         </nav>
 
         <div className="absolute left-0 bottom-0 w-full flex flex-col gap-3 p-4 bg-body border-t border-iconBg">
-          <button className="w-full py-3 rounded-[10px] text-sm text-navlink border border-iconBg">
+          <Link to='/login' className="w-full py-3 rounded-[10px] text-sm text-navlink border border-iconBg">
             Sign In
-          </button>
-          <button className="w-full py-3 rounded-[10px] text-sm font-bold text-white bg-primary">
+          </Link>
+          <Link to='/register' className="w-full py-3 rounded-[10px] text-sm font-bold text-white bg-primary">
             Get Started
-          </button>
+          </Link>
         </div>
       </div>
     </>
