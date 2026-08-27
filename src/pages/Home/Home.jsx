@@ -1,4 +1,3 @@
-
 import About from "./About";
 import Activities from "./Activities";
 import Footer from "./Footer";
