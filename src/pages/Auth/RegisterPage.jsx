@@ -19,9 +19,9 @@ export default function Signup() {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row bg-body font-Inter">
 
-      {/* Brand panel — pure gradient, no texture/orbs */}
+      {/* Brand panel  */}
       <div className="relative overflow-hidden bg-gradient-to-br from-primary via-primary to-primary/80 flex items-center justify-center px-6 py-10 lg:w-1/2 lg:p-12">
-        {/* Soft vignette only — keeps depth without clutter */}
+        
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-black/10" />
 
         <div className="relative text-center max-w-sm">
@@ -41,7 +41,7 @@ export default function Signup() {
             </div>
           </a>
 
-          <h2 className="text-base lg:text-xl font-extrabold text-white mb-1 lg:mb-3 tracking-tight leading-snug">
+          <h2 className="hidden lg:block text-base lg:text-xl font-extrabold text-white mb-1 lg:mb-3 tracking-tight leading-snug">
             Join the community
           </h2>
 
@@ -57,7 +57,7 @@ export default function Signup() {
         </div>
       </div>
 
-      {/* Form panel — rounded top on mobile, floating card feel */}
+      {/* Form panel */}
       <div className="flex flex-1 items-center justify-center text-center lg:text-left
                        p-6 sm:p-12
                        bg-body rounded-t-3xl -mt-6 relative z-10 shadow-[0_-8px_24px_rgba(0,0,0,0.06)]
@@ -104,7 +104,7 @@ export default function Signup() {
                   type="email"
                   value={form.email}
                   onChange={handleChange}
-                  placeholder="you@lirauni.ac.ug"
+                  placeholder="yourname@gmail.com"
                   className="w-full pl-11 pr-4 py-3 rounded-xl border border-iconBg/60 bg-white text-dark placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
                 />
               </div>
