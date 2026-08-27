@@ -9,7 +9,7 @@ import {
 } from '@heroicons/react/24/outline'
 import image from '../../assets/images'
 
-export default function Navbar() {
+export default function NavBar() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
