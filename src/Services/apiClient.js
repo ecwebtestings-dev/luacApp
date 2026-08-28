@@ -1,32 +1,48 @@
 import axios from 'axios';
-
+import toast from 'react-hot-toast';
+import { emitSessionExpired } from './sessionEvents';
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    'Accept': 'application/json',
+    Accept: 'application/json',
   },
 });
 
+// REQUEST INTERCEPTOR
+apiClient.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
-
-//INTERCEPTOR
-apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) config.headers.Authorization = `Bearer ${token}`;
-  return config;
-});
-
-//SESSION EXPIRE
+// RESPONSE INTERCEPTOR
 apiClient.interceptors.response.use(
   (response) => response.data,
+
   (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      // redirect to login
-      window.location.href='/login';
+    const status = error.response?.status;
+    const message = error.response?.data?.message || 'Something went wrong';
+
+    if (status === 401) {
+      const hadToken = Boolean(localStorage.getItem('token'));
+
+      if (hadToken) {
+        
+        localStorage.removeItem('token');
+        emitSessionExpired(); // no navigation
+      }
+     
+    } else {
+      toast.error(message);
     }
+
     return Promise.reject(error);
   }
 );
