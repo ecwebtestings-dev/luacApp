@@ -1,4 +1,4 @@
-import apiClient from "./ApiClient";
+import apiClient from "./apiClient";
 
 export const createEvent = (data) => apiClient.post("/event/create", data);
 export const updateEvent = (eventId, data) =>apiClient.patch(`/event/${eventId}/update`, data);
