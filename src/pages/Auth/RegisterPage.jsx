@@ -5,16 +5,71 @@ import { Link } from 'react-router-dom'
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false)
-  const [form, setForm] = useState({ fullName: '', email: '', password: '', confirmPassword: '' })
 
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+  const [form, setForm] = useState({
+     fullName: '', 
+     email: '', 
+     password: '', 
+     confirmPassword: ''
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Signup submitted:', form)
-  }
+    //ERROR STATES
+    const [error,setError]=useState('');
+    const [loading,setLoading]=useState(false);
+    const [fieldErrors,setFeildErrors]=useState({});
+
+
+    const handleChange =(e)=>{
+      const {name,value}=e.target;
+      setForm((prev)=>({...prev,[name]:value}));
+      setFeildErrors((prev)=>({...prev,[name]:''}));
+      if (error) setError('')
+    }
+
+    //INPUT FIELD VALIDATION
+    const isValid=()=>{
+        const newErrors ={};
+
+        if(!form.fullName.trim()){
+          newErrors.fullName ='Full names required';
+        }
+
+        if(!form.email.trim()){
+          newErrors.email='Email required';
+        }else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)){
+          newErrors.email='Invalid email address'
+        }
+
+        if(!form.password){
+          newErrors.password='Password required';
+        }else if(!form.password.length<8){
+          newErrors.password='Atleast 6+ characters'
+        }
+
+        if(!form.confirmPassword){
+          newErrors.confirmPassword='Comfirm password';
+        }
+
+        if(form.password !== form.confirmPassword){
+          newErrors.confirmPassword ='Password mismatch';
+        }
+
+        setFeildErrors(newErrors);//Update fields
+        return Object.keys(newErrors).length===0 //Return true if no error exists
+
+    }
+
+
+    //Submit form Function
+    const handleSubmit = async(e) => {
+      e.preventDefault()
+
+      if(!isValid()) return;
+        setError('');
+        setLoading(true);
+        
+        
+    }
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row bg-body font-Inter">
@@ -122,7 +177,7 @@ export default function Signup() {
                   type={showPassword ? 'text' : 'password'}
                   value={form.password}
                   onChange={handleChange}
-                  placeholder="••••••••"
+                  placeholder="Min 6+ characters"
                   className="w-full pl-11 pr-11 py-3 rounded-xl border border-iconBg/60 bg-white text-dark placeholder:text-muted/70 focus:outline-none focus:ring-2 focus:ring-primary/40 focus:border-primary transition"
                 />
                 <button
