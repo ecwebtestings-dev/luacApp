@@ -76,7 +76,7 @@ export default function Signup() {
   return (
     <div className="h-screen overflow-hidden flex flex-col lg:flex-row bg-body font-Inter">
       {/* Left panel */}
-      <div className="relative overflow-hidden flex flex-col justify-between px-8 py-6 h-40 lg:h-auto lg:py-14 lg:w-[45%]">
+      <div className="relative overflow-hidden flex flex-col justify-between px-8 py-6 h-45 lg:h-auto lg:py-14 lg:w-[45%]">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${image.Students})` }}
@@ -86,10 +86,10 @@ export default function Signup() {
         <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-primary/30 blur-3xl" />
 
         <a href="/" className="relative inline-flex items-center gap-3">
-          <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-white/20">
+          <div className="p-1 mt-5 rounded-full bg-white/10 backdrop-blur-sm ring-1 ring-white/20">
             <img src={image.logo} alt="Luac logo" width="32" height="32" className="rounded-full" />
           </div>
-          <span className="text-cream/70 text-xs font-semibold tracking-[0.2em] uppercase">
+          <span className="text-cream/70 text-sm mt-5 font-semibold tracking-[0.2em] uppercase">
             Luac  Computing Platform
           </span>
         </a>
@@ -104,23 +104,18 @@ export default function Signup() {
           <div className="mt-6 h-px w-16 bg-gradient-to-r from-primary to-transparent" />
         </div>
 
-        <p className="relative lg:hidden text-cream/70 text-xs">
+        {/* <p className="relative lg:hidden text-cream/70 text-sm pb-5">
           Register to connect with fellow computing students.
-        </p>
+        </p> */}
       </div>
 
       {/* Form panel */}
-      <div className="flex flex-1 items-center justify-center overflow-y-auto px-6 py-4 sm:px-12">
+      <div className="flex flex-1 flex-col justify-start lg:justify-center items-center overflow-y-auto px-5 pt-5 pb-4 sm:px-10 sm:pt-8 lg:px-12 lg:py-4 bg-body rounded-t-3xl -mt-6 relative z-10 lg:rounded-none lg:mt-0">
         <div className="w-full max-w-sm">
-          <h2 className="font-serif text-2xl text-dark text-center mb-1 tracking-tight">
-            Create your account
+          <h2 className="font-serif sm:text-3xl text-dark text-2xl text-primary text-center font-bold mb-1 tracking-tight">
+            Create Account
           </h2>
-          <p className="text-muted text-sm mb-5 text-center">
-            Already a member?{' '}
-            <Link to="/login" className="text-primary font-semibold hover:underline">
-              Sign in
-            </Link>
-          </p>
+          
 
           <form onSubmit={handleSubmit} className="space-y-3">
             {/* Full name */}
@@ -235,6 +230,13 @@ export default function Signup() {
               {loading && <Spinner size={16} />}
               {loading ? 'Please wait. Creating...' : 'Create account'}
             </button>
+
+            <p className="text-muted text-sm mb-5 text-center">
+            Already a member?{' '}
+            <Link to="/login" className="text-primary font-semibold hover:underline">
+              Sign in
+            </Link>
+          </p>
           </form>
         </div>
       </div>
