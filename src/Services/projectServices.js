@@ -1,4 +1,4 @@
-import apiClient from "./ApiClient";
+import apiClient from "./apiClient";
 
 export const createProject = (data) =>apiClient.post("/project/create", data);
 export const updateProject = (projectId, data) =>apiClient.patch(`/project/${projectId}/update`, data);

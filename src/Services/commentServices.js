@@ -1,4 +1,4 @@
-import apiClient from "./ApiClient";
+import apiClient from "./apiClient";
 
 export const createComment = (projectId, data) =>apiClient.post(`/project/${projectId}/comment`, data);
 export const getProjectComments = (projectId) =>apiClient.get(`/project/${projectId}/comments`);
