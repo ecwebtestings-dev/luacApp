@@ -64,7 +64,7 @@ export default function Signup() {
     setLoading(true)
     try {
       await register(form)
-      navigate('/')
+      navigate('/login')
     } catch (err) {
       const message = err.response?.data?.message || 'Something went wrong. Try again.'
       setError(message)
@@ -104,9 +104,7 @@ export default function Signup() {
           <div className="mt-6 h-px w-16 bg-gradient-to-r from-primary to-transparent" />
         </div>
 
-        {/* <p className="relative lg:hidden text-cream/70 text-sm pb-5">
-          Register to connect with fellow computing students.
-        </p> */}
+        
       </div>
 
       {/* Form panel */}
@@ -120,7 +118,7 @@ export default function Signup() {
           <form onSubmit={handleSubmit} className="space-y-3">
             {/* Full name */}
             <div>
-              <label htmlFor="fullName" className="block text-xs font-semibold text-muted tracking-wide mb-1">
+              <label htmlFor="fullName" className="block text-sm font-semibold text-muted tracking-wide mb-1">
                 Full name
               </label>
               <div className="relative group">
@@ -143,7 +141,7 @@ export default function Signup() {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-xs font-semibold text-muted tracking-wide mb-1">
+              <label htmlFor="email" className="block text-sm font-semibold text-muted tracking-wide mb-1">
                 Email address
               </label>
               <div className="relative group">
@@ -166,7 +164,7 @@ export default function Signup() {
 
             {/* Password */}
             <div>
-              <label htmlFor="password" className="block text-xs font-semibold text-muted tracking-wide mb-1">
+              <label htmlFor="password" className="block text-sm font-semibold text-muted tracking-wide mb-1">
                 Password
               </label>
               <div className="relative group">
@@ -197,7 +195,7 @@ export default function Signup() {
 
             {/* Confirm password */}
             <div>
-              <label htmlFor="confirmPassword" className="block text-xs font-semibold text-muted tracking-wide mb-1">
+              <label htmlFor="confirmPassword" className="block text-sm font-semibold text-muted tracking-wide mb-1">
                 Confirm password
               </label>
               <div className="relative group">

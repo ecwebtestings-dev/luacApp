@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../../Services/authServices'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import { useAuth } from '../../AuthContext/useAuth'
 
 
 export default function Login() {
@@ -14,7 +15,9 @@ export default function Login() {
   const [error, setError] = useState('')
   const [fieldError, setFeildErrors] = useState({})
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const {login: setAuthUser}=useAuth();
+
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -48,12 +51,16 @@ export default function Login() {
     try {
       const data = await login(form)
       localStorage.setItem('token', data.token.plainTextToken)
+      setAuthUser(data.user) //Stores user with role in AuthContext;
 
       if (data.user.role === 'user') {
         navigate('/userdashboard')
-      } else {
+      } else if(data.user.role === 'admin') {
         navigate('/admindashboard')
+      } else{
+        toast.error('Unrecognized account. Contact Support');
       }
+
     } catch (err) {
       const message = err.response?.data?.message || 'Invalid email or password'
       setError(message)
@@ -102,7 +109,7 @@ export default function Login() {
 
       <form onSubmit={handleSubmit} className="space-y-3">
         <div>
-          <label htmlFor="email" className="block text-xs font-semibold text-muted tracking-wide mb-1">
+          <label htmlFor="email" className="block text-sm font-semibold text-muted tracking-wide mb-1">
             Email address
           </label>
           <div className="relative group">
@@ -123,7 +130,7 @@ export default function Login() {
         </div>
 
         <div>
-          <label htmlFor="password" className="block text-xs font-semibold text-muted tracking-wide mb-1">
+          <label htmlFor="password" className="block text-sm font-semibold text-muted tracking-wide mb-1">
             Password
           </label>
           <div className="relative group">
