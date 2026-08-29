@@ -114,7 +114,7 @@ export default function Nav() {
           </ul>
         </nav>
 
-        <div className="absolute left-0 bottom-4 w-full flex flex-col gap-3 p-4 bg-body border-t border-iconBg">
+        <div className="absolute left-0 bottom-10 w-full flex flex-col gap-3 p-4 bg-body border-t border-iconBg">
           <Link to='/login' className="w-full py-3 px-3 rounded-[10px] text-sm text-navlink border border-iconBg">
             Sign In
           </Link>
