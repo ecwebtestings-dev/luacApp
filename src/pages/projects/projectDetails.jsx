@@ -1,0 +1,1 @@
+//Full project view + comments + likes, shared by bothe roles

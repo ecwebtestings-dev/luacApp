@@ -1,10 +1,10 @@
 import { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
-import Signup from './pages/Auth/RegisterPage'
-import Login from './pages/Auth/LoginPage'
-import Home from './pages/Home/Home'
+import Signup from '../pages/Auth/RegisterPage'
+import Login from '../pages/Auth/LoginPage'
+import Home from '../pages/Home/Home'
 import { Toaster, toast } from 'react-hot-toast'
-import { onSessionExpired } from './Services/sessionEvents'
+import { onSessionExpired } from '../Services/sessionEvents'
 
 function App() {
   const navigate = useNavigate()

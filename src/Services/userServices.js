@@ -1,4 +1,4 @@
-import apiClient from "./apiClient";
+import apiClient from './ApiClient'
 
 export const getUser = (userId)=>apiClient.get(`/user/${userId}/`)
 export const updateUserInfo = (userId,data)=>apiClient.post(`/users/update/${userId}`,data);

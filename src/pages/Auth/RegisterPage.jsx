@@ -4,7 +4,7 @@ import { UserIcon, EnvelopeIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from '@
 
 import image from '../../assets/images'
 import { register } from '../../Services/authServices'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/common/Spinner'
 
 export default function Signup() {
   const navigate = useNavigate()

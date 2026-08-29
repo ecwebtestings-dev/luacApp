@@ -31,7 +31,7 @@ export default function Nav() {
           </div>
         </a>
 
-        {/* Desktop nav — flat links, no dropdowns */}
+        {/* Desktop nav */}
         <nav className="hidden lg:flex mx-auto">
           <ul className="flex list-none">
             {navLinks.map((item) => (

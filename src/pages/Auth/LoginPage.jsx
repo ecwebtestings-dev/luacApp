@@ -3,7 +3,7 @@ import { EnvelopeIcon, LockClosedIcon, EyeIcon, EyeSlashIcon } from '@heroicons/
 import image from '../../assets/images'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../../Services/authServices'
-import Spinner from '../../components/Spinner'
+import Spinner from '../../components/common/Spinner'
 import toast from 'react-hot-toast'
 import { useAuth } from '../../AuthContext/useAuth'
 
