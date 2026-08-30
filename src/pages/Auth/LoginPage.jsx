@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../../Services/authServices'
 import Spinner from '../../components/common/Spinner'
 import toast from 'react-hot-toast'
-import { useAuth } from '../../AuthContext/useAuth'
+import { useAuth } from '../../Context/useAuth'
 
 
 export default function Login() {
@@ -53,11 +53,9 @@ export default function Login() {
       localStorage.setItem('token', data.token.plainTextToken)
       setAuthUser(data.user) //Stores user with role in AuthContext;
 
-      if (data.user.role === 'user') {
-        navigate('/userdashboard')
-      } else if(data.user.role === 'admin') {
-        navigate('/admindashboard')
-      } else{
+      if (data.user.role === 'user' || data.user.role === 'admin') {
+           navigate('/dashboard')
+      } else {
         toast.error('Unrecognized account. Contact Support');
       }
 

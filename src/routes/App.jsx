@@ -1,10 +1,28 @@
 import { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Toaster, toast } from 'react-hot-toast'
+import { onSessionExpired } from '../Services/sessionEvents'
+
+//PUBLIC ROUTES
 import Signup from '../pages/Auth/RegisterPage'
 import Login from '../pages/Auth/LoginPage'
 import Home from '../pages/Home/Home'
-import { Toaster, toast } from 'react-hot-toast'
-import { onSessionExpired } from '../Services/sessionEvents'
+
+//LAYOUT
+import ProtectedRoute from './protectedRoutes'
+import DashboardLayout from '../components/layout/dashboardLayout'
+
+//STUDENT USER PAGES
+import Events from '../pages/Users/Events'
+import Community from '../pages/Users/Community'
+import MyActivity from '../pages/Users/MyActivity'
+import MyProfile from '../pages/Users/myProfile'
+import UserProfile from '../pages/Users/UsersProfile'
+
+import RoledBaseProjects from '../pages/dashboard/RoledBaseProjects'
+import RoleBasedOverview from '../pages/dashboard/RoleBasedOverview'
+import ManageUsers from '../pages/Admins/manageUsers'
+import ActivityLogs from '../pages/Admins/activityLogs'
 
 function App() {
   const navigate = useNavigate()
@@ -34,9 +52,30 @@ function App() {
       />
 
       <Routes>
+        {/*PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
+
+        {/*DASHBOARD ROUTES */}
+        <Route path='/dashboard' element={<ProtectedRoute><DashboardLayout/></ProtectedRoute>}>
+
+          {/*ROLE BASED ACCESS*/}
+          <Route index element={<RoleBasedOverview/>}/>
+
+          {/*USER STUDENTS */}
+          <Route path='projects' element={<RoledBaseProjects/>}/>
+          <Route path='events' element={<Events/>}/>
+          <Route path='community' element={<Community/>}/>
+          <Route path='activity' element={<MyActivity/>}/>
+          <Route path='profile' element={<MyProfile/>}/>
+          <Route path='users/:userId' element={<UserProfile/>}/>
+
+          {/*ADMINS */}
+          <Route path='users' element={<ProtectedRoute allowedRoles={['admin']}><ManageUsers/></ProtectedRoute>}/>
+          <Route path='logs' element={<ProtectedRoute allowedRoles={['admin']}><ActivityLogs/></ProtectedRoute>}/>
+
+        </Route>
       </Routes>
     </>
   )
