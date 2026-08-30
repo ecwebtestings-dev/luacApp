@@ -50,7 +50,7 @@ export default function Login() {
 
     try {
       const data = await login(form)
-      localStorage.setItem('token', data.token.plainTextToken)
+      localStorage.setItem('token', data.token)
       setAuthUser(data.user) //Stores user with role in AuthContext;
 
       if (data.user.role === 'user' || data.user.role === 'admin') {

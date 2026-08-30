@@ -10,7 +10,7 @@ import Home from '../pages/Home/Home'
 
 //LAYOUT
 import ProtectedRoute from './protectedRoutes'
-import DashboardLayout from '../components/layout/dashboardLayout'
+import DashboardLayout from '../components/layout/DashboardLayout'
 
 //STUDENT USER PAGES
 import Events from '../pages/Users/Events'

@@ -4,30 +4,30 @@ import Header from './Header'
 import { useState } from 'react'
 
 const sectionTitles = {
-  '/dashboard': 'Overview',
-  '/dashboard/users': 'All users',
-  '/dashboard/events': 'Events',
-  '/dashboard/projects': 'Projects',
-  '/dashboard/notifications': 'Notifications',
-  '/dashboard/logs': 'Content logs',
-  '/dashboard/community': 'Discover people',
-  '/dashboard/activity': 'My activity',
-  '/dashboard/settings': 'Settings',
+  '/dashboard': 'overview',
+  '/dashboard/users': 'users',
+  '/dashboard/events': 'events',
+  '/dashboard/projects': 'projects',
+  '/dashboard/notifications': 'notifications',
+  '/dashboard/logs': 'logs',
+  '/dashboard/community': 'discover people',
+  '/dashboard/activity': 'my activity',
+  '/dashboard/settings': 'settings',
 }
 
 export default function DashboardLayout() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const [desktopSidebarOpen, setDesktopSidebarOpen] = useState(true)
+  const [desktopCollapsed, setDesktopCollapsed] = useState(false)
   const { pathname } = useLocation()
   const title = sectionTitles[pathname] || 'Dashboard'
 
   return (
     <div className='flex h-screen overflow-hidden bg-body font-Inter'>
 
-      {/* Desktop sidebar  */}
-      <SideBar className={desktopSidebarOpen ? 'hidden lg:flex' : 'hidden'} />
+      {/* Desktop sidebar*/}
+      <SideBar className="hidden lg:flex" collapsed={desktopCollapsed} />
 
-      {/* Mobile sidebar  */}
+      {/* Mobile sidebar */}
       {mobileNavOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
           <div
@@ -43,16 +43,18 @@ export default function DashboardLayout() {
       <div className='flex-1 flex flex-col overflow-hidden'>
         <Header
           onOpenMobileNav={() => setMobileNavOpen(true)}
-          onToggleDesktopSidebar={() => setDesktopSidebarOpen((o) => !o)}
+          onToggleDesktopSidebar={() => setDesktopCollapsed((c) => !c)}
         />
 
         <main className='flex-1 overflow-y-auto p-6'>
-          {/* Section title  */}
           <div className="flex items-center gap-2 mb-6">
-            <span className="text-muted text-xs hidden sm:inline">Luac Workspace</span>
+            <span className="text-muted text-xs hidden sm:inline">Luac workspace</span>
             <span className="text-muted text-xs hidden sm:inline">/</span>
-            <h1 className="text-muted text-xs font-semibold">{title}</h1>
+            <h1 className="text-muted text-xs">{title}</h1>
           </div>
+
+
+
 
           <Outlet />
         </main>
