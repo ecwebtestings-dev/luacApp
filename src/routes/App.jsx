@@ -19,10 +19,15 @@ import MyActivity from '../pages/Users/MyActivity'
 import MyProfile from '../pages/Users/myProfile'
 import UserProfile from '../pages/Users/UsersProfile'
 
+//ADMINS
 import RoledBaseProjects from '../pages/dashboard/RoledBaseProjects'
 import RoleBasedOverview from '../pages/dashboard/RoleBasedOverview'
 import ManageUsers from '../pages/Admins/manageUsers'
 import ActivityLogs from '../pages/Admins/activityLogs'
+import Notifications from '../pages/Admins/Notifications'
+import Settings from '../pages/Admins/Settings'
+
+
 
 function App() {
   const navigate = useNavigate()
@@ -59,16 +64,15 @@ function App() {
 
         {/*DASHBOARD ROUTES */}
         <Route path='/dashboard' element={<ProtectedRoute><DashboardLayout/></ProtectedRoute>}>
-
-          {/*ROLE BASED ACCESS*/}
           <Route index element={<RoleBasedOverview/>}/>
-
           {/*USER STUDENTS */}
           <Route path='projects' element={<RoledBaseProjects/>}/>
           <Route path='events' element={<Events/>}/>
           <Route path='community' element={<Community/>}/>
           <Route path='activity' element={<MyActivity/>}/>
           <Route path='profile' element={<MyProfile/>}/>
+          <Route path='notifications' element={<Notifications/>}/>
+          <Route path='settings' element={<Settings/>}/>
           <Route path='users/:userId' element={<UserProfile/>}/>
 
           {/*ADMINS */}

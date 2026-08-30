@@ -1,36 +1,21 @@
-//Top bar
-import { useLocation, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { BellIcon, Bars3Icon, MagnifyingGlassCircleIcon } from '@heroicons/react/24/outline'
-import UserMenu from "./userMenu";
+import UserMenu from "./userMenu"
 
-//TITLES
-const sectionTitles = {
-  '/dashboard': 'Overview',
-  '/dashboard/users': 'All users',
-  '/dashboard/events': 'Events',
-  '/dashboard/projects': 'Projects',
-  '/dashboard/notifications': 'Notifications',
-  '/dashboard/logs': 'Content logs',
-  '/dashboard/community': 'Discover people',
-  '/dashboard/activity': 'My activity',
-  '/dashboard/settings': 'Settings',
-}
-
-export default function Header({ onOpenMobileNav, onSearch }) {
-  const { pathname } = useLocation();
-  const title = sectionTitles[pathname] || 'Dashboard';
-
-
+export default function Header({ onOpenMobileNav, onToggleDesktopSidebar, onSearch }) {
   return (
     <header className="flex items-center justify-between gap-4 px-6 py-4 border-b border-iconBg/40 bg-body">
-      
+
       <div className="flex items-center gap-3 shrink-0">
+        {/* Mobile — opens the drawer */}
         <button onClick={onOpenMobileNav} className="lg:hidden text-muted">
           <Bars3Icon className="size-5" />
         </button>
-        <span className="text-muted text-sm hidden sm:inline">LUAC Workspace</span>
-        <span className="text-muted text-sm hidden sm:inline">/</span>
-        <span className="text-dark text-sm font-semibold">{title}</span>
+
+        {/* Desktop — collapses/expands the persistent sidebar */}
+        <button onClick={onToggleDesktopSidebar} className="hidden lg:inline-flex text-muted hover:text-dark transition-colors">
+          <Bars3Icon className="size-5" />
+        </button>
       </div>
 
       {/*SEARCH INPUT AREA*/}
@@ -44,15 +29,13 @@ export default function Header({ onOpenMobileNav, onSearch }) {
         />
       </div>
 
-      {/*NOTIFICATION AND USER INTIALS */}
+      {/*NOTIFICATION AND USER MENU */}
       <div className="flex items-center gap-4 shrink-0">
         <NavLink to='/dashboard/notifications' className="text-muted hover:text-dark transition-colors">
           <BellIcon className="size-5" />
         </NavLink>
 
-        {/*DROPDOWN MENU */}
         <UserMenu/>
-
       </div>
     </header>
   )

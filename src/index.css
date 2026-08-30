@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
 @theme {
-  --color-primary: #004225;         
+  --color-primary: #004225;
+  --color-dashboardbg:#2C4C3B;         
   --color-primary-light: #19553B;   /* --light-green */
   --color-cream: #F1F1EB;           /* --light-cream */
   --color-line: #608E77;            /* --lines */
