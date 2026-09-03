@@ -1,9 +1,14 @@
-import { NavLink } from "react-router-dom"
-import { BellIcon, Bars3Icon, MagnifyingGlassCircleIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, MagnifyingGlassCircleIcon } from '@heroicons/react/24/outline'
 import UserMenu from "./userMenu"
+import NotificationBell from "../nofifications/NotificationBell"
+import { useAuth } from "../../Context/useAuth"
 import image from "../../assets/images"
 
 export default function Header({ onOpenMobileNav, onToggleDesktopSidebar, onSearch }) {
+  const { user } = useAuth()
+  
+  const notificationsPath = user?.role === 'admin' ? '/dashboard/notifications' : '/dashboard/notifications'
+
   return (
     <header className="flex items-center justify-between gap-4 px-6 py-4 border-b border-iconBg/40 bg-body">
 
@@ -37,9 +42,7 @@ export default function Header({ onOpenMobileNav, onToggleDesktopSidebar, onSear
 
       {/*NOTIFICATION AND USER MENU */}
       <div className="flex items-center gap-4 shrink-0">
-        <NavLink to='/dashboard/notifications' className="text-muted hover:text-dark transition-colors">
-          <BellIcon className="size-5" />
-        </NavLink>
+        <NotificationBell notificationsPath={notificationsPath} />
 
         <UserMenu/>
       </div>

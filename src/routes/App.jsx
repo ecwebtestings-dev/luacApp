@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { Toaster, toast } from 'react-hot-toast'
 import { onSessionExpired } from '../Services/sessionEvents'
-
+import {QueryClient,QueryClientProvider} from '@tanstack/react-query';
 //PUBLIC ROUTES
 import Signup from '../pages/Auth/RegisterPage'
 import Login from '../pages/Auth/LoginPage'
@@ -13,9 +13,8 @@ import ProtectedRoute from './protectedRoutes'
 import DashboardLayout from '../components/layout/DashboardLayout'
 
 //STUDENT USER PAGES
-import Events from '../pages/Users/Events'
+
 import Community from '../pages/Users/Community'
-import MyActivity from '../pages/Users/MyActivity'
 import MyProfile from '../pages/Users/myProfile'
 import UserProfile from '../pages/Users/UsersProfile'
 
@@ -26,7 +25,19 @@ import ManageUsers from '../pages/Admins/manageUsers'
 import ActivityLogs from '../pages/Admins/activityLogs'
 import Notifications from '../pages/Admins/Notifications'
 import Settings from '../pages/Admins/Settings'
+import AdminEvents from '../pages/Admins/manageEvents';
 
+//DATA CACHING
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 1,
+      gcTime: 1000 * 60 * 30,
+      refetchOnWindowFocus: false,
+      retry: 1,
+    },
+  },
+})
 
 
 function App() {
@@ -34,6 +45,7 @@ function App() {
 
   useEffect(() => {
     const unsubscribe = onSessionExpired(() => {
+      
       toast.error('Session expired. Please log in again.')
       navigate('/login')
     })
@@ -42,8 +54,10 @@ function App() {
 
   return (
     <>
+
+      
       <Toaster
-        position="top-right"
+        position="top-center"
         toastOptions={{
           success: {
             style: { background: '#16A34A', color: '#FFFFFF' },
@@ -56,7 +70,10 @@ function App() {
         }}
       />
 
-      <Routes>
+      
+      
+      <QueryClientProvider client={queryClient}>
+            <Routes>
         {/*PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -67,9 +84,8 @@ function App() {
           <Route index element={<RoleBasedOverview/>}/>
           {/*USER STUDENTS */}
           <Route path='projects' element={<RoledBaseProjects/>}/>
-          <Route path='events' element={<Events/>}/>
+          <Route path='events' element={<AdminEvents/>}/>
           <Route path='community' element={<Community/>}/>
-          <Route path='activity' element={<MyActivity/>}/>
           <Route path='profile' element={<MyProfile/>}/>
           <Route path='notifications' element={<Notifications/>}/>
           <Route path='settings' element={<Settings/>}/>
@@ -80,7 +96,9 @@ function App() {
           <Route path='logs' element={<ProtectedRoute allowedRoles={['admin']}><ActivityLogs/></ProtectedRoute>}/>
 
         </Route>
-      </Routes>
+        </Routes>
+       </QueryClientProvider>
+      
     </>
   )
 }

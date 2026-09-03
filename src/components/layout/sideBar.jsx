@@ -17,11 +17,10 @@ const adminNav = [
 
 const studentNav = [
   { path: '/dashboard', label: 'Overview', icon: Squares2X2Icon, end: true },
-  { path: '/dashboard/projects', label: 'My projects', icon: DocumentTextIcon },
+  { path: '/dashboard/projects', label: 'Projects', icon: DocumentTextIcon },
   { path: '/dashboard/events', label: 'Events', icon: CalendarDaysIcon },
   { path: '/dashboard/community', label: 'Discover people', icon: UsersIcon },
-  { path: '/dashboard/notifications', label: 'Notifications', icon: BellIcon },
-  { path: '/dashboard/activity', label: 'My activity', icon: ChartBarIcon },
+  { path: '/dashboard/notifications', label: 'Notifications', icon: BellIcon }
 ]
 
 export default function Sidebar({ className = 'hidden lg:flex', collapsed = false, onNavigate }) {

@@ -2,26 +2,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
 @theme {
-  --color-primary: #004225;
-  --color-dashboardbg:#2C4C3B;         
-  --color-primary-light: #19553B;   /* --light-green */
-  --color-cream: #F1F1EB;           /* --light-cream */
-  --color-line: #608E77;            /* --lines */
-  --color-hoverBg: #E3E9E7;         /* --hover */
-  --color-iconBg: #C2CDC1;          /* --iconBg */
-  --color-dark: #1A1A1A;            /* --darkTextColor */
-  --color-karki: #C9A227;           /* --headingTextKarkiColor */
-  --color-karki-hover: #E2DAC4;     /* --karkiHover */
-  --color-body: #F8F6F1;            /* --bodeBackgroundColor */
-  --color-surface: #E5ECE9;         /* --IconBackgroundColor */
-  --color-surfaceHeader: #FEFDFE;   /* header glass background */
-  --color-navlink: #6B7280;         /* --navlink */
-  --color-muted: #7D7280;           /* --textGrayColor */
-  --color-pagebg:#F8F6F1;
+  --color-primary: #004225;         /* forest green — unchanged */
+  --color-dashboardbg: #2C4C3B;     /* unchanged */
+  --color-primary-light: #19553B;   /* --light-green — unchanged */
+  --color-cream: #F1F1EB;           /* --light-cream — unchanged */
+  --color-line: #608E77;            /* --lines — unchanged */
+  --color-hoverBg: #E3E9E7;         /* --hover — unchanged */
+  --color-iconBg: #C2CDC1;          /* --iconBg — unchanged */
+  --color-dark: #1A1A1A;            /* --darkTextColor — unchanged */
+  --color-karki: #C9A227;           /* --headingTextKarkiColor — unchanged, your gold accent */
+  --color-karki-hover: #E2DAC4;     /* --karkiHover — unchanged */
+  --color-body: #F8F6F1;            /* --bodeBackgroundColor — unchanged */
+  --color-surface: #E5ECE9;         /* --IconBackgroundColor — unchanged */
+  --color-surfaceHeader: #FEFDFE;   /* unchanged */
+  --color-navlink: #6B7280;         /* --navlink — unchanged */
+  --color-muted: #7D7280;           /* --textGrayColor — unchanged */
+  --color-pagebg: #F8F6F1;          /* unchanged */
+
+  
+  --color-success: #2F8F6E;         /* teal-green — distinct from primary, reads as "success" not just "brand" */
+  --color-warning: #C9A227;         /* reuse karki — gold works perfectly as warning/pending */
+  --color-danger:  #B3402A;         /* muted terracotta-red — warm, earthy, sits naturally next to forest green */
+  --color-info:    #3E6B8A;         /* dusty blue — cool contrast against the warm green/gold base */
+
   --font-nunito: "Ubuntu", sans-serif;
   --font-fjalla: "Fjalla One", sans-serif;
   --font-Inter: "Inter", sans-serif;
 }
- 
 
 
