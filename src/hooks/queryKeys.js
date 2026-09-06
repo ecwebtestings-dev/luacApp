@@ -1,4 +1,4 @@
-// hooks/queryKeys.js
+
 export const queryKeys = {
   users: {
     all: ['users', 'all'],
@@ -18,6 +18,9 @@ export const queryKeys = {
   },
   settings: {
     all: ['settings', 'all'], 
+  },
+  profile: {
+    detail: (userId) => ['profile', 'detail', userId],
   },
   notifications: {
   all: ['notifications', 'all'],

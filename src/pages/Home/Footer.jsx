@@ -1,4 +1,4 @@
-import { MapPinIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
+import { MapPinIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 export default function Footer() {
   return (
@@ -19,10 +19,7 @@ export default function Footer() {
             <h3 className="text-2xl font-extrabold">50+</h3>
             <p className="text-sm text-white/60">Members</p>
           </div>
-          <div>
-            <h3 className="text-2xl font-extrabold">20+</h3>
-            <p className="text-sm text-white/60">Projects</p>
-          </div>
+      
           <div>
             <h3 className="text-2xl font-extrabold">2026</h3>
             <p className="text-sm text-white/60">Vision Year</p>
@@ -47,36 +44,40 @@ export default function Footer() {
               <EnvelopeIcon className="size-4" />
               luac@lirauni.ac.ug
             </p>
+            <a href="tel:+256749095331" className="flex items-center gap-2 hover:text-white w-fit">
+              <PhoneIcon className="size-4" />
+              +256 749 095331
+            </a>
           </div>
         </div>
 
         <div>
           <h3 className="font-semibold mb-3">Activities</h3>
           <div className="flex flex-col gap-2 text-sm text-white/70">
-            <a href="#" className="hover:text-white">Workshops</a>
-            <a href="#" className="hover:text-white">Hackathons</a>
-            <a href="#" className="hover:text-white">Bootcamps</a>
-            <a href="#" className="hover:text-white">Competitions</a>
+            <a href="/register" className="hover:text-white">Workshops</a>
+            <a href="/register" className="hover:text-white">Hackathons</a>
+            <a href="/register" className="hover:text-white">Bootcamps</a>
+            <a href="/register" className="hover:text-white">Competitions</a>
           </div>
         </div>
 
         <div>
           <h3 className="font-semibold mb-3">Resources</h3>
           <div className="flex flex-col gap-2 text-sm text-white/70">
-            <a href="#" className="hover:text-white">GitHub</a>
-            <a href="#" className="hover:text-white">Projects</a>
-            <a href="#" className="hover:text-white">Learning Materials</a>
-            <a href="#" className="hover:text-white">Documentation</a>
+            <a href="/register" className="hover:text-white">GitHub</a>
+            <a href="/register" className="hover:text-white">Projects</a>
+            <a href="/register" className="hover:text-white">Learning Materials</a>
+            <a href="/register" className="hover:text-white">Documentation</a>
           </div>
         </div>
 
         <div>
           <h3 className="font-semibold mb-3">Company</h3>
           <div className="flex flex-col gap-2 text-sm text-white/70">
-            <a href="#" className="hover:text-white">About Us</a>
-            <a href="#" className="hover:text-white">Executive</a>
-            <a href="#" className="hover:text-white">Events</a>
-            <a href="#" className="hover:text-white">Contact</a>
+            <a href="/register" className="hover:text-white">About Us</a>
+            <a href="/register" className="hover:text-white">Executive</a>
+            <a href="/register" className="hover:text-white">Events</a>
+            <a href="/register" className="hover:text-white">Contact</a>
           </div>
         </div>
       </div>
