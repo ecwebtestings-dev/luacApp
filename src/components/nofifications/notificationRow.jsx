@@ -1,5 +1,5 @@
 import { EllipsisHorizontalIcon } from '@heroicons/react/24/outline';
-import { iconForNotification, messageOf, isUnread, timeAgo } from '../../utils/NotificationUtils';
+import { iconForNotification, messageOf, isUnread, timeAgo } from '../../utils/notificationUtils';
 
 export default function NotificationRow({ notification, onOpenActions }) {
   const Icon = iconForNotification(notification);

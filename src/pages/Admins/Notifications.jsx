@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNotifications, useMarkNotificationsRead, useDeleteNotification } from '../../hooks/useNotifications';
-import { extractList, isUnread } from '../../utils/NotificationUtils';
+import { extractList, isUnread } from '../../utils/notificationUtils';
 import NotificationRow from '../../components/nofifications/notificationRow';
 import NotificationActionSheet from '../../components/nofifications/NotificationActionSheet';
 import Spinner from '../../components/common/Spinner';
