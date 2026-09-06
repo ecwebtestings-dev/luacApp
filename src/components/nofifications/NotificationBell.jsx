@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useNotifications, useMarkNotificationsRead } from '../../hooks/useNotifications';
 import {
   iconForNotification, messageOf, isUnread, timeAgo, extractList, extractUnreadCount,
-} from '../../utils/notificationUtils';
+} from '../../utils/NotificationUtils';
 import Spinner from '../common/Spinner';
 
 export default function NotificationBell({ notificationsPath = '/dashboard/notifications' }) {
