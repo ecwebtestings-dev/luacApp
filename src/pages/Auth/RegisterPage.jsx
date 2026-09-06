@@ -64,7 +64,7 @@ export default function Signup() {
     setLoading(true)
     try {
       await register(form)
-      navigate('/login')
+      navigate('/dashboard')
     } catch (err) {
       const message = err.response?.data?.message || 'Something went wrong. Try again.'
       setError(message)

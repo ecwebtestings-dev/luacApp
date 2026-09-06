@@ -65,8 +65,8 @@ export default function ActivityLogs() {
   }
 
   return (
-    <div className="bg-white border border-black/5 shadow-sm w-full">
-      <div className="flex items-center justify-between px-6 py-5 border-b border-black/5">
+    <div className="bg-white border rounded-2xl border-black/5 shadow-sm w-full h-full min-h-[calc(100vh-8rem)] flex flex-col">
+      <div className="flex items-center justify-between px-6 py-5 border-b border-black/5 shrink-0">
         <div>
           <h2 className="text-lg font-bold text-dark">Activity Logs</h2>
           <p className="text-sm text-muted mt-0.5">
@@ -84,15 +84,19 @@ export default function ActivityLogs() {
         </button>
       </div>
 
-      <div className="w-full overflow-x-auto">
+      <div className="w-full overflow-x-auto flex-1">
         {isLoading ? (
-          <div className="px-6 py-12 text-center text-sm text-muted">Loading logs…</div>
+          <div className="h-full flex items-center justify-center text-sm text-muted">
+            Loading logs…
+          </div>
         ) : isError ? (
-          <div className="px-6 py-12 text-center text-sm text-red-600">
+          <div className="h-full flex items-center justify-center text-sm text-red-600">
             Failed to load activity logs.
           </div>
         ) : !logs.length ? (
-          <div className="px-6 py-12 text-center text-sm text-muted">No activity yet.</div>
+          <div className="h-full flex items-center justify-center text-sm text-muted">
+            No activity yet.
+          </div>
         ) : (
           <table className="min-w-[720px] w-full text-sm">
             <thead>
@@ -130,7 +134,7 @@ export default function ActivityLogs() {
       </div>
 
       {lastPage > 1 && (
-        <div className="flex items-center justify-between px-6 py-3 border-t border-black/5 text-sm text-muted">
+        <div className="flex items-center justify-between px-6 py-3 border-t border-black/5 text-sm text-muted shrink-0">
           <span>
             Page {page} of {lastPage}
           </span>
