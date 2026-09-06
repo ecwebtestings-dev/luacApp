@@ -74,9 +74,9 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-6">
       {!bannerDismissed && (
-        <div className="relative overflow-hidden rounded-2xl bg-primary text-white p-3 sm:p-4 mb-6 shadow-lg shadow-primary/20">
+        <div className="relative overflow-hidden rounded-3xl bg-primary p-5 text-white shadow-xl shadow-primary/20 sm:p-7">
           <div className="absolute -right-6 -top-6 opacity-10">
             <SparklesIcon className="size-32" />
           </div>
@@ -104,9 +104,15 @@ export default function AdminDashboard() {
         </div>
       )}
 
-      <p className="text-muted text-sm mb-4">Current status</p>
+      <div className="flex items-end justify-between gap-4">
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-karki">At a glance</p>
+          <h2 className="mt-1 text-xl font-semibold tracking-tight text-dark">Current status</h2>
+        </div>
+        <p className="hidden text-xs text-muted sm:block">Live workspace metrics</p>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         <StatisticsCard label='Total Users' value={statistics.totalUsers ?? ''} icon={UserIcon} />
         <StatisticsCard label='Live Projects' value={statistics.totalProjects ?? ''} icon={DocumentTextIcon} />
         <StatisticsCard label='Upcoming Events' value={statistics.totalEvents ?? ''} icon={CalendarDaysIcon} />
@@ -115,7 +121,7 @@ export default function AdminDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
         {/* Activity overview */}
-        <div className="lg:col-span-2 rounded-2xl border border-iconBg/40 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div className="premium-panel lg:col-span-2 rounded-3xl p-5 transition-all sm:p-6">
           <div className="flex items-center justify-between mb-1">
             <p className="text-xs font-semibold tracking-wide text-muted uppercase">Activity overview</p>
             <span className="text-xs font-medium text-dark bg-iconBg/30 rounded-full px-3 py-1">Last 30 days</span>

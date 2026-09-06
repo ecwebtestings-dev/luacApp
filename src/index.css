@@ -1,33 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
+
 @theme {
-  --color-primary: #004225;         /* forest green — unchanged */
-  --color-dashboardbg: #2C4C3B;     /* unchanged */
-  --color-primary-light: #19553B;   /* --light-green — unchanged */
-  --color-cream: #F1F1EB;           /* --light-cream — unchanged */
-  --color-line: #608E77;            /* --lines — unchanged */
-  --color-hoverBg: #E3E9E7;         /* --hover — unchanged */
-  --color-iconBg: #C2CDC1;          /* --iconBg — unchanged */
-  --color-dark: #1A1A1A;            /* --darkTextColor — unchanged */
-  --color-karki: #C9A227;           /* --headingTextKarkiColor — unchanged, your gold accent */
-  --color-karki-hover: #E2DAC4;     /* --karkiHover — unchanged */
-  --color-body: #F8F6F1;            /* --bodeBackgroundColor — unchanged */
-  --color-surface: #E5ECE9;         /* --IconBackgroundColor — unchanged */
-  --color-surfaceHeader: #FEFDFE;   /* unchanged */
-  --color-navlink: #6B7280;         /* --navlink — unchanged */
-  --color-muted: #7D7280;           /* --textGrayColor — unchanged */
-  --color-pagebg: #F8F6F1;          /* unchanged */
-
-  
-  --color-success: #2F8F6E;         /* teal-green — distinct from primary, reads as "success" not just "brand" */
-  --color-warning: #C9A227;         /* reuse karki — gold works perfectly as warning/pending */
-  --color-danger:  #B3402A;         /* muted terracotta-red — warm, earthy, sits naturally next to forest green */
-  --color-info:    #3E6B8A;         /* dusty blue — cool contrast against the warm green/gold base */
-
+  --color-primary: #004225;
+  --color-dashboardbg: #2C4C3B;
+  --color-primary-light: #19553B;
+  --color-cream: #F1F1EB;
+  --color-line: #608E77;
+  --color-hoverBg: #E3E9E7;
+  --color-iconBg: #C2CDC1;
+  --color-dark: #1A1A1A;
+  --color-karki: #C9A227;
+  --color-karki-hover: #E2DAC4;
+  --color-body: #F8F6F1;
+  --color-surface: #E5ECE9;
+  --color-surfaceHeader: #FEFDFE;
+  --color-navlink: #6B7280;
+  --color-muted: #7D7280;
+  --color-pagebg: #F8F6F1;
+  --color-success: #2F8F6E;
+  --color-warning: #C9A227;
+  --color-danger: #B3402A;
+  --color-info: #3E6B8A;
   --font-nunito: "Ubuntu", sans-serif;
   --font-fjalla: "Fjalla One", sans-serif;
   --font-Inter: "Inter", sans-serif;
 }
 
+@layer base {
+  * { border-color: color-mix(in srgb, var(--color-iconBg) 42%, transparent); }
+  html { background: var(--color-body); }
+  body {
+    margin: 0;
+    min-width: 320px;
+    background: var(--color-body);
+    color: var(--color-dark);
+    font-family: var(--font-Inter);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: color-mix(in srgb, var(--color-karki) 28%, transparent); color: var(--color-dark); }
+  button, a, input { outline-offset: 3px; }
+  :focus-visible { outline: 2px solid var(--color-karki); }
+}
 
+@layer utilities {
+  .premium-panel {
+    border: 1px solid color-mix(in srgb, var(--color-iconBg) 44%, transparent);
+    background: color-mix(in srgb, white 86%, var(--color-body));
+    box-shadow: 0 14px 35px rgba(0, 66, 37, 0.06);
+  }
+  .premium-panel:hover { box-shadow: 0 18px 42px rgba(0, 66, 37, 0.1); }
+}
+
+@media (max-width: 640px) {
+  main { scrollbar-gutter: stable; }
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback';
+}
+
+body { font-family: 'Inter', sans-serif; }
+.font-fjalla { font-family: 'Fjalla One', sans-serif; }
+.font-nunito { font-family: 'Ubuntu', sans-serif; }
+.font-Inter { font-family: 'Inter', sans-serif; }
+.font-Inter\! { font-family: 'Inter', sans-serif !important; }
+.text-karki { color: #C9A227; }
+.bg-karki { background-color: #C9A227; }
+.bg-primary { background-color: #004225; }
+.bg-primary-light { background-color: #19553B; }
+.bg-body { background-color: #F8F6F1; }
+.bg-surface { background-color: #E5ECE9; }
+.bg-surfaceHeader { background-color: #FEFDFE; }
+.text-dark { color: #1A1A1A; }
+.text-muted { color: #7D7280; }
+.text-cream { color: #F1F1EB; }
+.text-primary { color: #004225; }
+.text-primary-light { color: #19553B; }
+.text-info { color: #3E6B8A; }
+.text-success { color: #2F8F6E; }
+.text-danger { color: #B3402A; }
+.text-warning { color: #C9A227; }
+.border-iconBg { border-color: #C2CDC1; }
+.divide-iconBg\/30 > :not(:last-child) { border-color: color-mix(in srgb, #C2CDC1 30%, transparent); }
+.placeholder\:text-muted\/50::placeholder { color: color-mix(in srgb, #7D7280 50%, transparent); }
+.ring-primary\/20 { --tw-ring-color: color-mix(in srgb, #004225 20%, transparent); }
+.shadow-primary\/20 { --tw-shadow-color: color-mix(in srgb, #004225 20%, transparent); }
+.bg-primary\/10 { background-color: color-mix(in srgb, #004225 10%, transparent); }
+.bg-karki\/10 { background-color: color-mix(in srgb, #C9A227 10%, transparent); }
+.bg-primary-light\/10 { background-color: color-mix(in srgb, #19553B 10%, transparent); }
+.bg-iconBg\/30 { background-color: color-mix(in srgb, #C2CDC1 30%, transparent); }
+.border-iconBg\/40 { border-color: color-mix(in srgb, #C2CDC1 40%, transparent); }
+.border-iconBg\/50 { border-color: color-mix(in srgb, #C2CDC1 50%, transparent); }
+.border-iconBg\/60 { border-color: color-mix(in srgb, #C2CDC1 60%, transparent); }
+.bg-white { background-color: #FEFDFE; }
+.text-white { color: #FEFDFE; }
+.text-white\/80 { color: color-mix(in srgb, #FEFDFE 80%, transparent); }
+.text-white\/85 { color: color-mix(in srgb, #FEFDFE 85%, transparent); }
+.text-cream\/40 { color: color-mix(in srgb, #F1F1EB 40%, transparent); }
+.text-cream\/50 { color: color-mix(in srgb, #F1F1EB 50%, transparent); }
+.text-cream\/70 { color: color-mix(in srgb, #F1F1EB 70%, transparent); }
+.bg-white\/5 { background-color: color-mix(in srgb, #FEFDFE 5%, transparent); }
+.bg-black\/40 { background-color: color-mix(in srgb, #1A1A1A 40%, transparent); }

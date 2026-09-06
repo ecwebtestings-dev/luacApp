@@ -23,40 +23,28 @@ export default function DashboardLayout() {
 
   return (
     <div className='flex h-screen overflow-hidden bg-body font-Inter'>
-
-      {/* Desktop sidebar*/}
       <SideBar className="hidden lg:flex" collapsed={desktopCollapsed} />
 
-      {/* Mobile sidebar */}
       {mobileNavOpen && (
         <div className="fixed inset-0 z-40 lg:hidden">
-          <div
-            className="absolute inset-0 bg-black/40"
-            onClick={() => setMobileNavOpen(false)}
-          />
-          <div className="absolute inset-y-0 left-0 w-64">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setMobileNavOpen(false)} />
+          <div className="absolute inset-y-0 left-0 w-72 shadow-2xl">
             <SideBar className="flex" onNavigate={() => setMobileNavOpen(false)} />
           </div>
         </div>
       )}
 
-      <div className='flex-1 flex flex-col overflow-hidden'>
-        <Header
-          onOpenMobileNav={() => setMobileNavOpen(true)}
-          onToggleDesktopSidebar={() => setDesktopCollapsed((c) => !c)}
-        />
-
-        <main className='flex-1 overflow-y-auto p-6'>
-          <div className="flex items-center gap-2 mb-6">
-            <span className="text-muted text-xs hidden sm:inline">Luac workspace</span>
-            <span className="text-muted text-xs hidden sm:inline">/</span>
-            <h1 className="text-muted text-xs">{title}</h1>
+      <div className='flex-1 flex min-w-0 flex-col overflow-hidden'>
+        <Header onOpenMobileNav={() => setMobileNavOpen(true)} onToggleDesktopSidebar={() => setDesktopCollapsed((c) => !c)} />
+        <main className='flex-1 overflow-y-auto px-4 py-5 sm:px-6 sm:py-7 lg:px-8'>
+          <div className="mx-auto max-w-[1440px]">
+            <div className="mb-7 flex items-center gap-2 text-xs">
+              <span className="font-medium text-muted">Luac workspace</span>
+              <span className="text-iconBg">/</span>
+              <h1 className="font-semibold capitalize text-primary">{title}</h1>
+            </div>
+            <Outlet />
           </div>
-
-
-
-
-          <Outlet />
         </main>
       </div>
     </div>

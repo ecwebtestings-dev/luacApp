@@ -74,12 +74,13 @@ export default function UserDashboard() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col gap-6">
       {/* Header */}
-      <div className="flex items-start justify-between gap-3 mb-6">
+      <div className="flex items-start justify-between gap-3">
         <div>
          
-          <h1 className="text-2xl sm:text-3xl font-semibold text-dark mb-1">
+          <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-karki">Personal overview</p>
+          <h1 className="text-2xl font-semibold tracking-tight text-dark sm:text-3xl">
             Welcome back{user?.name ? `, ${user.name.split(" ")[0]}` : ""}
           </h1>
           <p className="text-sm text-muted">A quick look at your projects, events, and community.</p>
@@ -103,7 +104,7 @@ export default function UserDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Breakdown */}
-        <div className="lg:col-span-2 rounded-2xl border border-iconBg/40 bg-white p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow">
+        <div className="premium-panel lg:col-span-2 rounded-3xl p-5 transition-all sm:p-6">
           <div className="flex items-center justify-between mb-1">
             <p className="text-xs font-semibold tracking-wide text-muted uppercase">Overview</p>
           </div>
