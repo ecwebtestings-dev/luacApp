@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { AcademicCapIcon, PhoneIcon, CalendarIcon, SparklesIcon, PencilIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import toast from 'react-hot-toast'
 import { useUserProfile, useViewUserProfile, useUpdateUserProfile } from '../../hooks/useUsers';
-import { getFileUrl } from '../../utils/GetFileurl';
+import { getFileUrl } from '../../utils/getFileurl';
 import Spinner from '../../components/common/Spinner';
 
 function EditUserModal({ open, onClose, onSubmit, initialData, loading }) {
