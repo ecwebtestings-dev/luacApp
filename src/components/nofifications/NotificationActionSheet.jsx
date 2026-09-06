@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { XCircleIcon } from '@heroicons/react/24/solid';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { iconForNotification, messageOf } from '../../Utils/notificationUtils';
+import { iconForNotification, messageOf } from '../../utils/notificationUtils';
 
 export default function NotificationActionSheet({ notification, onClose, onDelete, isDeleting }) {
   if (!notification) return null;
