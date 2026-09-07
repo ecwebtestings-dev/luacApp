@@ -1,27 +1,62 @@
-import { useState } from 'react'
-import { LinkIcon, PencilIcon, TrashIcon, ChatBubbleLeftIcon } from '@heroicons/react/24/outline'
+import { useState, useRef, useEffect } from 'react'
+import { LinkIcon, PencilIcon, TrashIcon, ChatBubbleLeftIcon, EllipsisVerticalIcon } from '@heroicons/react/24/outline'
 import CommentDialog from '../comments/commentDialog'
 
 export default function ProjectCard({ project, onEdit, onDelete }) {
   const [showComments, setShowComments] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef(null)
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const handleEdit = () => {
+    setMenuOpen(false)
+    onEdit(project)
+  }
+
+  const handleDelete = () => {
+    setMenuOpen(false)
+    onDelete(project)
+  }
 
   return (
     <div className="bg-white border border-iconBg/50 rounded-xl overflow-hidden flex flex-col relative">
-      <div className="absolute top-3 right-3 flex items-center gap-2">
+      <div className="absolute top-3 right-3" ref={menuRef}>
         <button
-          onClick={() => onEdit(project)}
-          title="Edit"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          title="More actions"
+          aria-label="More actions"
           className="flex items-center justify-center size-7 text-muted hover:text-dark rounded-lg border border-iconBg/50 bg-white"
         >
-          <PencilIcon className="size-3.5" />
+          <EllipsisVerticalIcon className="size-4" />
         </button>
-        <button
-          onClick={() => onDelete(project)}
-          title="Delete"
-          className="flex items-center justify-center size-7 text-red-500 hover:text-red-600 rounded-lg border border-red-200 bg-white"
-        >
-          <TrashIcon className="size-3.5" />
-        </button>
+
+        {menuOpen && (
+          <div className="absolute right-0 mt-1 w-32 bg-white border border-iconBg/50 rounded-lg shadow-lg overflow-hidden z-10">
+            <button
+              onClick={handleEdit}
+              className="w-full flex items-center gap-2 px-3 py-2 text-sm text-dark hover:bg-body transition-colors"
+            >
+              <PencilIcon className="size-3.5" />
+              Edit
+            </button>
+            <button
+              onClick={handleDelete}
+              className="w-full flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+            >
+              <TrashIcon className="size-3.5" />
+              Delete
+            </button>
+          </div>
+        )}
       </div>
 
       <div className="p-4 flex flex-col flex-1">

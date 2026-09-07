@@ -89,7 +89,7 @@ export default function UserDashboard() {
       </div>
 
       {/* STAT CARDS — ACCENTED ICONS, MATCHING ADMIN DASHBOARD */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 mb-6">
         <StatisticsCard
           label="Your Projects"
           value={userProjects?.length ?? ""}
@@ -148,7 +148,7 @@ export default function UserDashboard() {
                   onClick={() => navigate(`/dashboard/projects`)}
                   className="flex items-center gap-3 py-3 group cursor-pointer"
                 >
-                  <span className="flex items-center justify-center size-10 rounded-xl bg-primary/10 shrink-0 group-hover:bg-primary/15 transition-colors">
+                  <span className="flex items-center justify-center size-10 rounded-xl shrink-0 group-hover:bg-primary/15 transition-colors">
                     <Squares2X2Icon className="size-4.5 text-primary" />
                   </span>
                   <div className="flex-1 min-w-0">
@@ -176,7 +176,7 @@ export default function UserDashboard() {
               <ChevronRightIcon className="size-3.5" />
             </button>
           </div>
-          <h2 className="text-lg font-semibold text-dark mb-4">Upcoming events</h2>
+          <h2 className="text-md font-semibold text-muted mb-4">Upcoming events</h2>
 
           {eventsLoading ? (
             <div className="flex justify-center py-12">
@@ -192,11 +192,11 @@ export default function UserDashboard() {
                   onClick={() => navigate(`/dashboard/events/`)}
                   className="flex items-center gap-3 py-3 group cursor-pointer"
                 >
-                  <span className="flex items-center justify-center size-10 rounded-xl bg-primary/10 shrink-0 group-hover:bg-primary/15 transition-colors">
+                  <span className="flex items-center justify-center size-10 rounded-xl shrink-0 group-hover:bg-primary/15 transition-colors">
                     <CalendarDaysIcon className="size-4.5 text-primary" />
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className="font-semibold text-dark text-sm truncate">{event.title}</p>
+                    <p className="font-semibold text-muted text-sm truncate">{event.title}</p>
                     <p className="text-xs text-muted truncate">{formatEventTime(event.startsAt ?? event.start_date ?? event.date)}</p>
                   </div>
                   <ChevronRightIcon className="size-4 text-muted shrink-0 group-hover:translate-x-0.5 transition-transform" />

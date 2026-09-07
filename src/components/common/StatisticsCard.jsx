@@ -1,9 +1,9 @@
 const ACCENTS = {
-  default: 'bg-body text-karki',
-  primary: 'bg-primary/10 text-primary',
-  karki: 'bg-karki/10 text-karki',
-  primaryLight: 'bg-primary-light/10 text-primary-light',
-  red: 'bg-red-50 text-red-500',
+  default: 'text-karki',
+  primary: ' text-primary',
+  karki: ' text-karki',
+  primaryLight: ' text-primary-light',
+  red: ' text-red-500',
 }
 
 export default function StatisticsCard({ label, value, change, icon: Icon, accent = 'default' }) {
@@ -13,11 +13,11 @@ export default function StatisticsCard({ label, value, change, icon: Icon, accen
         <span className={`flex items-center justify-center size-9 rounded-lg shrink-0 ${ACCENTS[accent] ?? ACCENTS.default}`}>
           <Icon className="size-[18px]" />
         </span>
-        <p className="text-sm font-semibold tracking-wide text-dark">{label}</p>
+        <p className="text-sm font-semibold tracking-wide uppercase text-muted">{label}</p>
       </div>
 
       <div className="flex items-baseline gap-2">
-        <strong className="text-2xl font-bold text-dark">{value}</strong>
+        <strong className="text-2xl font-bold text-muted ">{value}</strong>
         {change && (
           <span className={`text-xs font-medium ${
             change.trend === 'down' ? 'text-red-500' : 'text-green-600'
