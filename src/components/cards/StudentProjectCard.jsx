@@ -2,17 +2,17 @@ import { useState } from 'react'
 import { ChatBubbleLeftIcon, LinkIcon } from '@heroicons/react/24/outline'
 import LikeButton from '../comments/likeButton'
 import CommentDialog from '../comments/commentDialog'
-
-
+import { useProjectComments } from '../../hooks/useComments'
 
 export default function StudentProjectCard({ project }) {
   const [commentsOpen, setCommentsOpen] = useState(false)
   const ownerName = project.user?.name ?? project.owner?.name ?? 'Unknown'
 
+  const { data: comments } = useProjectComments(project.id)
+  const commentCount = comments?.data?.length ?? comments?.length ?? 0
+
   return (
     <div className="bg-white border border-iconBg/50 rounded-xl p-4 flex flex-col">
-      
-
       <h3 className="font-semibold text-dark text-base mb-1">{project.title}</h3>
 
       <p className="text-xs text-muted mb-3">
@@ -25,7 +25,7 @@ export default function StudentProjectCard({ project }) {
 
       {project.url && (
         
-         <a href={project.url}
+        <a href={project.url}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 text-xs text-primary hover:underline min-w-0 mb-3"
@@ -35,14 +35,14 @@ export default function StudentProjectCard({ project }) {
         </a>
       )}
 
-      <div className="flex items-center gap-5 pt-3 border-t border-iconBg/30">
+      <div className="flex items-center gap-5 pt-3">
         <LikeButton projectId={project.id} />
         <button
           onClick={() => setCommentsOpen(true)}
           className="flex items-center gap-1.5 text-sm text-muted hover:text-dark transition-colors"
         >
           <ChatBubbleLeftIcon className="size-4" />
-          <span>Comment</span>
+          <span>{commentCount > 0 ? commentCount : ''}</span>
         </button>
       </div>
 

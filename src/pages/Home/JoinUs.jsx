@@ -26,7 +26,7 @@ const benefits = [
 
 export default function WhyJoin() {
   return (
-    <section id="whyJoin" className="py-16 md:py-24">
+    <section id="activities" className="py-16 md:py-24">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-start">
         <div>
           <span className="text-xs font-semibold tracking-widest text-karki">GET INVOLVED LUAC?</span>

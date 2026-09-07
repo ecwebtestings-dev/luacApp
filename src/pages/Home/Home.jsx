@@ -1,4 +1,5 @@
 import About from "./About";
+import EventsSection from "./EventsSection";
 import Footer from "./Footer";
 import Hero from "./Hero";
 import WhyJoin from "./JoinUs";
@@ -12,8 +13,10 @@ export default function Home() {
       <Nav/>
       <Hero/>
       <About/>
+      <EventsSection/>
       <WhyJoin/>
       <Footer/>
+      
     </div>
   )
 }

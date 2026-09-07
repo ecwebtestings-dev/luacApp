@@ -64,17 +64,18 @@ export default function AdminEvents() {
     <div>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="text-muted text-sm mt-1">COMMUNITY EVENTS MANAGEMENT</p>
+          <p className="text-muted text-sm mt-1">COMMUNITY EVENTS</p>
         </div>
 
 
         <button
           onClick={openCreate}
-          className="flex items-center gap-1.5 bg-primary text-white text-sm font-medium px-4 py-2.5 rounded-lg"
-        >
-          <PlusIcon className="size-4" />
-          Create event
-        </button>
+          className="flex items-center justify-center gap-1.5 bg-primary text-white text-sm font-medium px-2.5 py-2 sm:px-3 rounded-lg"
+      >
+        <PlusIcon className="size-4 shrink-0" />
+        <span className="hidden sm:inline">Create Event</span>
+        <span className="sm:hidden">Create</span>
+      </button>
 
       </div>
 

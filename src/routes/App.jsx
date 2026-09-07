@@ -7,6 +7,8 @@ import {QueryClient,QueryClientProvider} from '@tanstack/react-query';
 import Signup from '../pages/Auth/RegisterPage'
 import Login from '../pages/Auth/LoginPage'
 import Home from '../pages/Home/Home'
+import PrivacyPolicy from '../pages/Home/PrivacyPolicy';
+import TermsOfService from '../pages/Home/TermsOfService';
 
 //LAYOUT
 import ProtectedRoute from './protectedRoutes'
@@ -78,6 +80,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
+        <Route path='/policy' element={<PrivacyPolicy/>}/>
+        <Route path='/terms' element={<TermsOfService/>} />
 
         {/*DASHBOARD ROUTES */}
         <Route path='/dashboard' element={<ProtectedRoute><DashboardLayout/></ProtectedRoute>}>

@@ -1,7 +1,7 @@
 // src/pages/Users/UserProfile.jsx
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { AcademicCapIcon, PhoneIcon, CalendarIcon, SparklesIcon, PencilIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { AcademicCapIcon, PhoneIcon, CalendarIcon, SparklesIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import toast from 'react-hot-toast'
 import { useUserProfile, useViewUserProfile, useUpdateUserProfile } from '../../hooks/useUsers';
 import { getFileUrl } from '../../utils/GetFileUrl';
@@ -203,13 +203,7 @@ export default function UserProfile() {
             </div>
           </div>
 
-          <button
-            onClick={() => setEditOpen(true)}
-            className="flex items-center gap-1.5 text-sm font-medium text-primary border border-primary/30 rounded-lg px-3 py-2 hover:bg-primary/5 shrink-0"
-          >
-            <PencilIcon className="size-4" />
-            <span className="hidden sm:inline">Update User</span>
-          </button>
+      
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-iconBg/40">

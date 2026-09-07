@@ -7,11 +7,12 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const navLinks = [
-    { name: 'Home', href: '/', },
-    { name: 'Our Activities', href: '/activities',  },
-    { name: 'About Luac', href: '/about',  },
-    { name: 'Events', href: '/events',  },
-  ]
+  { name: 'Home', href: '/' },
+  { name: 'Our Activities', href: '#activities' },
+  { name: 'About Luac', href: '#about' },
+  { name: 'Events', href: '#events' },
+]
+
 
   return (
     <>

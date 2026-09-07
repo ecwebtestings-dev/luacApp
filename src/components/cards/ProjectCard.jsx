@@ -31,7 +31,7 @@ export default function ProjectCard({ project, onEdit, onDelete }) {
           <p className="text-sm text-muted line-clamp-3 mb-3">{project.description}</p>
         )}
 
-        <div className="mt-auto flex items-center justify-between gap-3 pt-2 border-t border-iconBg/30">
+        <div className="mt-auto flex items-center justify-between gap-3 pt-2">
           {project.url ? (
             <a href={project.url}
               target="_blank"

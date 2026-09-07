@@ -21,7 +21,7 @@ const foundationCards = [
 
 export default function About() {
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section id="about" className="py-16 md:py-24 bg-white">
       <div className="max-w-[1200px] mx-auto px-4 md:px-8">
         <div className="text-center mb-16">
           <span className="text-xs font-semibold tracking-[0.2em] text-karki">LET'S INTRODUCE</span>

@@ -5,7 +5,7 @@ export default function ConfirmDialog({ open, onClose, onConfirm, message, confi
     <Modal open={open} onClose={onClose} className="flex flex-col items-center justify-center text-center px-6 py-6">
       
 
-      <p className="text-muted text-sm mb-3 max-w-xs">{message}</p>
+      <p className="text-muted text-sm items-center flex justify-center mb-3 max-w-xs">{message}</p>
 
       <div className="flex gap-2 w-full">
         <button

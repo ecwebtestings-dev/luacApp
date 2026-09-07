@@ -1,4 +1,6 @@
 import { MapPinIcon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
+import {Link} from 'react-router-dom';
+
 
 export default function Footer() {
   return (
@@ -87,8 +89,8 @@ export default function Footer() {
         <div className="max-w-[1200px] mx-auto px-4 md:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-white/60">
           <p>© 2026 LUAC. All rights reserved.</p>
           <div className="flex gap-4">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+            <Link to="/policy" className="hover:text-white">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white">Terms of Service</Link>
           </div>
         </div>
       </div>
