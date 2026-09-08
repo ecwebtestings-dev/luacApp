@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom'
 import SideBar from './sideBar'
 import Header from './Header'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const sectionTitles = {
   '/dashboard': 'overview',
@@ -15,11 +15,19 @@ const sectionTitles = {
   '/dashboard/settings': 'settings',
 }
 
+const SIDEBAR_STORAGE_KEY = 'luac-sidebar-collapsed'
+
 export default function DashboardLayout() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
-  const [desktopCollapsed, setDesktopCollapsed] = useState(false)
+  const [desktopCollapsed, setDesktopCollapsed] = useState(
+    () => localStorage.getItem(SIDEBAR_STORAGE_KEY) === 'true'
+  )
   const { pathname } = useLocation()
   const title = sectionTitles[pathname] || 'Dashboard'
+
+  useEffect(() => {
+    localStorage.setItem(SIDEBAR_STORAGE_KEY, desktopCollapsed)
+  }, [desktopCollapsed])
 
   return (
     <div className='flex h-screen overflow-hidden bg-body font-Inter'>
@@ -52,9 +60,6 @@ export default function DashboardLayout() {
             <span className="text-muted text-xs hidden sm:inline">/</span>
             <h1 className="text-muted text-xs">{title}</h1>
           </div>
-
-
-
 
           <Outlet />
         </main>

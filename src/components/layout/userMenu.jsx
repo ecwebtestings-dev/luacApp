@@ -58,7 +58,7 @@ export default function UserMenu() {
 
           <div className="py-1">
             <button
-              onClick={() => handleNavigate('/dashboard/profile')}
+              onClick={() => handleNavigate('/dashboard/settings')}
               className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-dark hover:bg-body transition-colors text-left"
             >
               <UserCircleIcon className="size-[18px] text-muted" />

@@ -1,7 +1,7 @@
 // src/pages/Users/UserProfile.jsx
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { AcademicCapIcon, PhoneIcon, CalendarIcon, SparklesIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { AcademicCapIcon, PhoneIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import toast from 'react-hot-toast'
 import { useUserProfile, useViewUserProfile, useUpdateUserProfile } from '../../hooks/useUsers';
 import { getFileUrl } from '../../utils/GetFileUrl';
@@ -160,10 +160,9 @@ export default function UserProfile() {
   }
 
   const course = profile?.course
-  const yearOfStudy = profile?.year_of_study
+  //const yearOfStudy = profile?.year_of_study
   const phone = profile?.phone
-  const hobbies = profile?.hobbies
-  const profileImage = profile?.profile_image
+//  const profileImage = profile?.profile_image
 
   const initials = user?.name
     ? user.name.split(' ').map((n) => n[0]).slice(0, 2).join('').toUpperCase()
@@ -185,17 +184,17 @@ export default function UserProfile() {
       <div className="rounded-xl border border-iconBg/50 bg-white p-4 sm:p-6 mb-6">
         <div className="flex items-start justify-between gap-3">
           <div className="flex flex-col items-center text-center gap-3 sm:flex-row sm:items-start sm:text-left sm:gap-4">
-            {profileImage ? (
+            {/* {profileImage ? (
               <img
                 src={getFileUrl(profileImage)}
                 alt={user?.name || 'Profile'}
                 className="size-14 sm:size-16 rounded-full object-cover shrink-0"
               />
-            ) : (
+            ) : ( */}
               <span className="flex items-center justify-center size-14 sm:size-16 rounded-full bg-primary text-white text-lg sm:text-xl font-semibold shrink-0">
                 {initials}
               </span>
-            )}
+           
 
             <div className="min-w-0">
               <h1 className="text-lg sm:text-xl font-bold text-dark truncate">{user?.name}</h1>
@@ -213,24 +212,24 @@ export default function UserProfile() {
               {course || 'Course not set'}
             </span>
           </div>
-          <div className="flex items-center gap-2.5 text-sm">
+          {/* <div className="flex items-center gap-2.5 text-sm">
             <CalendarIcon className="size-[18px] text-primary shrink-0" />
             <span className={yearOfStudy ? 'text-dark' : 'text-muted italic'}>
               {yearOfStudy ? `Year ${yearOfStudy}` : 'Year not set'}
             </span>
-          </div>
+          </div> */}
           <div className="flex items-center gap-2.5 text-sm">
             <PhoneIcon className="size-[18px] text-primary shrink-0" />
             <span className={phone ? 'text-dark break-words' : 'text-muted italic'}>
               {phone || 'No phone number'}
             </span>
           </div>
-          <div className="flex items-center gap-2.5 text-sm">
+          {/* <div className="flex items-center gap-2.5 text-sm">
             <SparklesIcon className="size-[18px] text-primary shrink-0" />
             <span className={hobbies ? 'text-dark break-words' : 'text-muted italic'}>
               {hobbies || 'No hobbies listed'}
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
 
