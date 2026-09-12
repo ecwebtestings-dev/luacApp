@@ -11,6 +11,7 @@ export default function Nav() {
   { name: 'Our Activities', href: '#activities' },
   { name: 'About Luac', href: '#about' },
   { name: 'Events', href: '#events' },
+  { name: 'Luac Ai', href: '/luacai' },
 ]
 
 

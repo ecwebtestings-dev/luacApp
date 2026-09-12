@@ -16,7 +16,7 @@ export default function Home() {
       <EventsSection/>
       <WhyJoin/>
       <Footer/>
-      
+       
     </div>
   )
 }

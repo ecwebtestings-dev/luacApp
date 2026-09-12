@@ -17,7 +17,6 @@ import DashboardLayout from '../components/layout/dashboardLayout'
 //STUDENT USER PAGES
 
 import Community from '../pages/Users/Community'
-import MyProfile from '../pages/Users/myProfile'
 import UserProfile from '../pages/Users/UsersProfile'
 
 //ADMINS
@@ -28,6 +27,7 @@ import ActivityLogs from '../pages/Admins/activityLogs'
 import Notifications from '../pages/Admins/Notifications'
 import Settings from '../pages/Admins/Settings'
 import AdminEvents from '../pages/Admins/manageEvents';
+import AiChatPage from '../pages/Home/AiChat';
 
 //DATA CACHING
 const queryClient = new QueryClient({
@@ -78,6 +78,7 @@ function App() {
             <Routes>
         {/*PUBLIC ROUTES */}
         <Route path="/" element={<Home />} />
+        <Route path='/luacai' element={<AiChatPage/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
         <Route path='/policy' element={<PrivacyPolicy/>}/>
@@ -90,7 +91,6 @@ function App() {
           <Route path='projects' element={<RoledBaseProjects/>}/>
           <Route path='events' element={<AdminEvents/>}/>
           <Route path='community' element={<Community/>}/>
-          <Route path='profile' element={<MyProfile/>}/>
           <Route path='notifications' element={<Notifications/>}/>
           <Route path='settings' element={<Settings/>}/>
           <Route path='users/:userId' element={<UserProfile/>}/>
